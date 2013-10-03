@@ -10,5 +10,6 @@ class Initializer
             realpath(__DIR__ . '/../../../vendor/assets/stylesheets'),
             realpath(__DIR__ . '/../../../vendor/assets/images'),
         ]);
+        \Rails\ActionView\ViewHelpers::addHelper('Rails\Bootstrap2\ViewHelper');
     }
 }
