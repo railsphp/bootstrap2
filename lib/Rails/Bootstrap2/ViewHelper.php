@@ -47,11 +47,13 @@ class ViewHelper extends \Rails\ActionView\Helper
     
     public function btn($text, $color = null, array $attrs = [])
     {
-        if ($attrs) {
+        if (is_string($color) || $attrs) {
             $this->ensureArray($attrs);
             $attrs['class'][] = $this->btnColorToClass($color);
         } elseif (is_array($color)) {
             $attrs = $color;
+            $this->ensureArray($attrs);
+            $attrs['class'][] = 'btn-default';
         }
         $attrs['class'][] = 'btn';
         if (empty($attrs['type'])) {
